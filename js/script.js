@@ -19,34 +19,25 @@ var selectedQuote;
 var quotes = [
   {
     quote: "Don't cry because it's over, smile because it happened.",
-    source: "999",
-    citation: "888",
-    year: "777"
+    source: "test1",
+    citation: "test2",
+    year: "test3"
   },
   {
     quote: "Bran thought about it. 'Can a man still be brave if he's afraid?' 'That is the only time a man can be brave,' his father told him.",
-    source: 'George RR Martin',
-    // Entering false for citation and year properties for the if statement down below
-    citation: false,
-    year: false
+    source: 'George RR Martin'
   },
   {
     quote: "Whatever comes, don’t push it away. When it goes, do not grieve.",
-    source: 'Mooji',
-    citation: false,
-    year: false
+    source: 'Mooji'
   },
   {
     quote: "Life begins where fear ends.",
-    source: 'Osho',
-    citation: false,
-    year: false
+    source: 'Osho'
   },
   {
     quote: "Live as if you were to die tomorrow. Learn as if you were to live forever.",
-    source: 'Ghandi',
-    citation: false,
-    year: false
+    source: 'Ghandi'
   }
 ];
 
@@ -59,19 +50,14 @@ var quotes = [
 ***/
 
 var randomNumber;
-var selectedQuote;
-var selectedSource;
-var selectedCitation;
-var selectedYear;
 
 function getRandomQuote() {
   randomNumber = Math.floor(Math.random() * 5);
-  selectedQuote = quotes[0 * randomNumber].quote;
-  selectedSource = quotes[0 * randomNumber].source;
-  selectedCitation = quotes[0 * randomNumber].citation;
-  selectedYear = quotes[0 * randomNumber].year;
-  return selectedQuote, selectedSource, selectedCitation, selectedYear;
+  //this adds the random number to the first '[]' of quotes, picking the object.
+  return quotes[randomNumber];
 };
+
+console.log(getRandomQuote());
 
 
 
@@ -90,20 +76,20 @@ function getRandomQuote() {
 
 function printQuote() {
   var results = getRandomQuote();
-  if (selectedCitation === false) {
-    selectedCitation.style.display = "none";
-  }
-  if (selectedYear === false) {
-    selectedYear.style.display = "none";
-  }
-  var theHTML = results;
-                '<p class="quote">' + selectedQuote + '</p>'
-                '<p class="source">' + selectedSource +
-                '<span class="citation">' + selectedCitation + '</span>'
-                '<span class="year">' + selectedYear + '</span>' +
+  var x = document.getElementsByClassName("citation").innerHTML;
+  var y = document.getElementsByClassName('year').innerHTML;
+  var theHTML = '<p class="quote">' + results.quote + '</p>' +
+                '<p class="source">' + results.source;
+                if (x !== undefined) {
+                '<span class="citation">' + results.citation + '</span>'
+              } if (y !== undefined) {
+                '<span class="year">' + results.year + '</span>'
+              }
                 '</p>';
   return theHTML;
 }
+
+
 
 document.getElementById('quote-box').innerHTML = printQuote();
 
