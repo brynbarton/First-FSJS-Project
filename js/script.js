@@ -19,9 +19,9 @@ var selectedQuote;
 var quotes = [
   {
     quote: "Don't cry because it's over, smile because it happened.",
-    source: "test1",
-    citation: "test2",
-    year: "test3"
+    source: "Dr. Seuss",
+    citation: "test1",
+    year: "test2"
   },
   {
     quote: "Bran thought about it. 'Can a man still be brave if he's afraid?' 'That is the only time a man can be brave,' his father told him.",
@@ -76,20 +76,20 @@ console.log(getRandomQuote());
 
 function printQuote() {
   var results = getRandomQuote();
-  var x = document.getElementsByClassName("citation").innerHTML;
-  var y = document.getElementsByClassName('year').innerHTML;
+  var x = document.getElementsByClassName('citation');
+  var y = document.getElementsByClassName('year');
   var theHTML = '<p class="quote">' + results.quote + '</p>' +
-                '<p class="source">' + results.source;
-                if (x !== undefined) {
-                '<span class="citation">' + results.citation + '</span>'
-              } if (y !== undefined) {
-                '<span class="year">' + results.year + '</span>'
-              }
+                '<p class="source">' + results.source
+                  if (results.citation !== null) {
+                   + '<span class="citation">' + results.citation + '</span>'
+                } if (y !== undefined) {
+                   + '<span class="year">' + results.year + '</span>' +
                 '</p>';
+                }
+
+
   return theHTML;
 }
-
-
 
 document.getElementById('quote-box').innerHTML = printQuote();
 
