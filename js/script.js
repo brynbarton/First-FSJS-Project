@@ -14,7 +14,6 @@ project 1 - A Random Quote Generator
   Add the `year` property to at least one object in the array.
   Use console.log() to log your array of quotes to the console.
 ***/
-var randomNumber;
 var selectedQuote;
 var quotes = [
   {
@@ -49,10 +48,9 @@ var quotes = [
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
 
-var randomNumber;
 
 function getRandomQuote() {
-  randomNumber = Math.floor(Math.random() * 5);
+  var randomNumber = Math.floor(Math.random() * quotes.length);
   //this adds the random number to the first '[]' of quotes, picking the object.
   return quotes[randomNumber];
 };
@@ -76,14 +74,12 @@ console.log(getRandomQuote());
 
 function printQuote() {
   var results = getRandomQuote();
-  var x = document.getElementsByClassName('citation');
-  var y = document.getElementsByClassName('year');
   var theHTML = '<p class="quote">' + results.quote + '</p>' +
                 '<p class="source">' + results.source
-                  if (results.citation !== null) {
-                   + '<span class="citation">' + results.citation + '</span>'
-                } if (y !== undefined) {
-                   + '<span class="year">' + results.year + '</span>' +
+                  if (results.citation !== undefined) {
+                   '<span class="citation">' + results.citation + '</span>'
+                } if (results.year !== undefined) {
+                   '<span class="year">' + results.year + '</span>' +
                 '</p>';
                 }
 
