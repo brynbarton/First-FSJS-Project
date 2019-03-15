@@ -17,10 +17,10 @@ project 1 - A Random Quote Generator
 var selectedQuote;
 var quotes = [
   {
-    quote: "Don't cry because it's over, smile because it happened.",
-    source: "Dr. Seuss",
-    citation: "test1",
-    year: "test2"
+    quote: "I don't care about wars, I wish all people in world become friends",
+    source: "Some guy I met on the side of the road",
+    citation: "Vietnam",
+    year: "2019"
   },
   {
     quote: "Bran thought about it. 'Can a man still be brave if he's afraid?' 'That is the only time a man can be brave,' his father told him.",
@@ -75,19 +75,16 @@ console.log(getRandomQuote());
 function printQuote() {
   var results = getRandomQuote();
   var theHTML = '<p class="quote">' + results.quote + '</p>' +
-                '<p class="source">' + results.source
-                  if (results.citation !== undefined) {
-                   '<span class="citation">' + results.citation + '</span>'
+                '<p class="source">' + results.source;
+                if (results.citation !== undefined) {
+                theHTML += '<span class="citation">' + results.citation + '</span>'
                 } if (results.year !== undefined) {
-                   '<span class="year">' + results.year + '</span>' +
+                theHTML += '<span class="year">' + results.year + '</span>' +
                 '</p>';
-                }
+                };
+document.getElementById('quote-box').innerHTML = theHTML;
 
-
-  return theHTML;
-}
-
-document.getElementById('quote-box').innerHTML = printQuote();
+};
 
 
 
