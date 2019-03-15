@@ -1,39 +1,38 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
+//The quotes and their properties that will show up on the webpage
 var quotes = [
   {
     quote: "I don't care about wars, I wish all people in world become friends",
     source: "Some guy I met on the side of the road",
     citation: "Vietnam",
-    year: "2019"
+    year: "2019",
+    category: ", Food for Thought"
   },
   {
     quote: "Bran thought about it. 'Can a man still be brave if he's afraid?' 'That is the only time a man can be brave,' his father told him.",
-    source: 'George RR Martin'
+    source: 'George RR Martin',
+    category: ', Courage'
   },
   {
     quote: "Whatever comes, don’t push it away. When it goes, do not grieve.",
-    source: 'Mooji'
+    source: 'Mooji',
+    category: ', Courage'
   },
   {
     quote: "Life begins where fear ends.",
-    source: 'Osho'
+    source: 'Osho',
+    category: ', Curiosity'
   },
   {
     quote: "Live as if you were to die tomorrow. Learn as if you were to live forever.",
-    source: 'Ghandi'
+    source: 'Ghandi',
+    category: ', Courage'
   }
 ];
 
+//This function will get the random number assigned to each quote, which is how printQuote() will know what to display.
 function getRandomQuote() {
-  //using quote.length just in case amount of quotes is modified.
   var randomNumber = Math.floor(Math.random() * quotes.length);
-  //this adds the random number to the first '[]' of quotes, picking the object.
   return quotes[randomNumber];
 };
 
@@ -42,7 +41,7 @@ console.log(getRandomQuote());
 
 
 
-
+//This function will run when the button is clicked, causing the new quotes and properties to show on the page, depending on the number chosen by getRandomQuote().
 function printQuote() {
   var results = getRandomQuote();
   var theHTML = '<p class="quote">' + results.quote + '</p>' +
@@ -50,8 +49,10 @@ function printQuote() {
                 if (results.citation !== undefined) {
                 theHTML += '<span class="citation">' + results.citation + '</span>'
                 } if (results.year !== undefined) {
-                theHTML += '<span class="year">' + results.year + '</span>' +
-                '</p>';
+                theHTML += '<span class="year">' + results.year + '</span>'
+              } if (results.category !== undefined) {
+                theHTML += '<span class="category">' + results.category + '</span>'
+                + '</p>';
                 };
 document.getElementById('quote-box').innerHTML = theHTML;
 
