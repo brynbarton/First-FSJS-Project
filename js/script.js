@@ -60,8 +60,8 @@ function printQuote() {
                 theHTML += '</p>'
 document.getElementById('quote-box').innerHTML = theHTML;
 document.body.style.backgroundColor = getRandomColor();
+setTimeout(printQuote, 10000);
 };
-setTimeout(printQuote(), 200);
 
 
 
