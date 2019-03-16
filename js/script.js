@@ -35,7 +35,7 @@ var quotes = [
 function getRandomQuote() {
   var randomNumber = Math.floor(Math.random() * quotes.length);
   return quotes[randomNumber];
-};
+}
 //this function will assign the random color for printQuote to display
 function getRandomColor() {
   var randomColor = Math.floor(Math.random()* backGroundColor.length);
@@ -61,7 +61,7 @@ function printQuote() {
 document.getElementById('quote-box').innerHTML = theHTML;
 document.body.style.backgroundColor = getRandomColor();
 setTimeout(printQuote, 10000);
-};
+}
 
 
 
