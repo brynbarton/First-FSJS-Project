@@ -56,8 +56,8 @@ function printQuote() {
                 theHTML += '<span class="year">' + results.year + '</span>'
               } if (results.category !== undefined) {
                 theHTML += '<span class="category">' + results.category + '</span>'
-                + '</p>';
-                };
+              };
+                theHTML += '</p>'
 document.getElementById('quote-box').innerHTML = theHTML;
 document.body.style.backgroundColor = getRandomColor();
 setTimeout(arguments.callee, 10000);
