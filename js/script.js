@@ -42,8 +42,6 @@ function getRandomColor() {
   return backGroundColor[randomColor];
 }
 
-console.log(getRandomQuote());
-
 
 
 
@@ -61,13 +59,11 @@ function printQuote() {
                 + '</p>';
                 };
 document.getElementById('quote-box').innerHTML = theHTML;
+document.body.style.backgroundColor = getRandomColor();
 setTimeout(arguments.callee, 10000);
 };
 
-function colorChange() {
-  var resultsColor = getRandomColor();
-  document.body.style.backgroundColor = backGroundColor[resultsColor];
-}
+
 
 
 
