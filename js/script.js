@@ -1,12 +1,6 @@
 
 //The quotes and their properties that will show up on the webpage
-var backGroundColor = [
-  {color: "red"},
-  {color: "purple"},
-  {color: "green"},
-  {color: "blue"},
-  {color: "yellow"},
-]
+var backGroundColor = [ 'red', 'blue', 'yellow', 'purple', 'black']
 var quotes = [
   {
     quote: "I don't care about wars, I wish all people in world become friends",
@@ -41,8 +35,12 @@ var quotes = [
 function getRandomQuote() {
   var randomNumber = Math.floor(Math.random() * quotes.length);
   return quotes[randomNumber];
-  return backGroundColor[randomNumber];
 };
+
+function getRandomColor() {
+  var randomColor = Math.floor(Math.random()* backGroundColor.length);
+  return backGroundColor[randomColor];
+}
 
 console.log(getRandomQuote());
 
@@ -52,7 +50,6 @@ console.log(getRandomQuote());
 //This function will run when the button is clicked, causing the new quotes and properties to show on the page, depending on the number chosen by getRandomQuote().
 function printQuote() {
   var results = getRandomQuote();
-  var resultsColor = document.body.style.background = getRandomQuote();
   var theHTML = '<p class="quote">' + results.quote + '</p>' +
                 '<p class="source">' + results.source;
                 if (results.citation !== undefined) {
@@ -66,6 +63,11 @@ function printQuote() {
 document.getElementById('quote-box').innerHTML = theHTML;
 setTimeout(arguments.callee, 10000);
 };
+
+function colorChange() {
+  var resultsColor = getRandomColor();
+  document.body.style.backgroundColor = backGroundColor[resultsColor];
+}
 
 
 
