@@ -40,12 +40,12 @@ function getRandomQuote() {
 function getRandomColor() {
   var randomColor = Math.floor(Math.random()* backGroundColor.length);
   return backGroundColor[randomColor];
-};
+}
 
 
 
 
-//This function will run when the button is clicked, causing the new quotes and properties to show on the page, depending on the number chosen by getRandomQuote() and getRandomColor().
+//This function will run when the button is clicked, causing the new quotes and properties to show on the page, depending on the number chosen by getRandomQuote() and getRandomColor.
 function printQuote() {
   var results = getRandomQuote();
   var theHTML = '<p class="quote">' + results.quote + '</p>' +
@@ -60,9 +60,8 @@ function printQuote() {
                 theHTML += '</p>'
 document.getElementById('quote-box').innerHTML = theHTML;
 document.body.style.backgroundColor = getRandomColor();
-setTimeout(arguments.callee, 10000);
 };
-
+setTimeout(printQuote(), 200);
 
 
 
